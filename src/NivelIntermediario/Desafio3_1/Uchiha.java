@@ -2,18 +2,19 @@ package NivelIntermediario.Desafio3_1;
 
 public class Uchiha extends Ninja {
 
-    public static String habilidadeEspecial = "Sharingan";
+    public static String specialAbility = "Sharingan";
 
     public Uchiha() {
     }
 
-    public String getHabilidadeEspecial() {
-        return habilidadeEspecial;
+    public String getSpecialAbility() {
+        return specialAbility;
     }
 
+
     @Override
-    public String mostrarInformacoes() {
-        return super.mostrarInformacoes() + "\nHabilidade: " + getHabilidadeEspecial();
+    public String showInfo() {
+        return super.showInfo() + "Special Skill: " + getSpecialAbility();
     }
 }
 

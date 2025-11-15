@@ -1,18 +1,19 @@
 package NivelIntermediario.Desafio3_1;
 
 public class Hyuga extends Ninja {
-    public static String habilidadeEspecial = "Byakugan";
+    public static String specialAbility = "Byakugan";
 
     public Hyuga() {
     }
 
-    public String getHabilidadeEspecial() {
-        return habilidadeEspecial;
+    public String getSpecialAbility() {
+        return specialAbility;
     }
 
+
     @Override
-    public String mostrarInformacoes() {
-        return super.mostrarInformacoes() + "\nHabilidade: " + getHabilidadeEspecial();
+    public String showInfo() {
+        return super.showInfo() + "Special Skill: " + getSpecialAbility();
     }
 }
 

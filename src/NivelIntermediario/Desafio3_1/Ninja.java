@@ -1,45 +1,46 @@
 package NivelIntermediario.Desafio3_1;
 
 public class Ninja {
-    private String nome;
-    private int idade;
-    private String missao;
-    private String dificuldade;
+    private String name;
+    private int age;
+    private String mission;
+    private String rank;
     private String status;
 
     public Ninja() {
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public String getMissao() {
-        return missao;
+    public String getMission() {
+        return mission;
     }
 
-    public void setMissao(String missao) {
-        this.missao = missao;
+    public void setMissao(String mission) {
+        this.mission = mission;
     }
 
-    public void setDificuldade(String dificuldade) {
-        this.dificuldade = dificuldade;
+    public void setRank(String rank) {
+        this.rank = rank;
     }
 
     public void setStatus(String status) {
         this.status = status;
     }
 
-    public String mostrarInformacoes() {
-        return "\n------ Informacoes do Ninja ------" +
-                "\nNome: " + this.nome +
-                "\nIdade: " + this.idade +
-                "\nMissao: " + this.missao +
-                "\nRank: " + this.dificuldade +
-                "\nStatus: " + this.status;
+    public String showInfo() {
+        return "\n------ Ninja Information ------" +
+                "\nName: " + this.name +
+                "\nAge: " + this.age +
+                "\nMission: " + this.mission +
+                "\nRank: " + this.rank +
+                "\nStatus: " + this.status +
+                "\n";
     }
 }

@@ -5,78 +5,80 @@ import java.util.Scanner;
 public class NinjaServices {
 
 
-    public static void listarNinjas(List grupoNinjas) {
-        for (Object ninja : grupoNinjas) {
-            System.out.println(ninja.toString());
+    public static void listNinjas(List<Ninja> groupNinjas) {
+        for (Ninja ninja : groupNinjas) {
+            System.out.println(ninja.showInfo());
         }
     }
 
 
-    public static void adicionarNinja(List grupoNinjas) {
+    public static void addNewNinja(List<Ninja> groupNinjas) {
         Scanner input = new Scanner(System.in);
-        int opcao;
-        Ninja novoNinja;
-        System.out.println("Que tipo de Ninja? \n1 - Comum \n2 - Cla Uchiha \n3 - Cla Hyuga \n4 - Voltar");
-        opcao = input.nextInt();
+        int option;
+        Ninja newNinja;
+        System.out.println("What type of Ninja? \n1 - Default \n2 - Cla Uchiha \n3 - Cla Hyuga \n4 - Back");
+        option = input.nextInt();
         input.nextLine();
-        novoNinja = tipoNinja(opcao);
-        if (novoNinja == null) return;
-        System.out.println("Nome: ");
-        novoNinja.setNome(input.nextLine());
-        System.out.println("Idade: ");
-        novoNinja.setIdade(input.nextInt());
+        newNinja = typeNinja(option);
+        if (newNinja == null) return;
+        System.out.println("Ninja name: ");
+        newNinja.setName(input.nextLine());
+        System.out.println("Ninja age: ");
+        newNinja.setAge(input.nextInt());
         input.nextLine();
-        System.out.println("Missao: ");
-        novoNinja.setMissao(input.nextLine());
-        validaMissao(novoNinja, input);
-        grupoNinjas.add(novoNinja);
+        System.out.println("Mission: ");
+        newNinja.setMissao(input.nextLine());
+        missionValidation(newNinja, input);
+        groupNinjas.add(newNinja);
     }
 
 
-    private static Ninja tipoNinja(int opcao) {
-        Ninja novoNinja;
-        switch (opcao) {
+    private static Ninja typeNinja(int option) {
+        Ninja newNinja;
+        switch (option) {
             case 1:
-                novoNinja = new Ninja();
+                newNinja = new Ninja();
                 break;
             case 2:
-                novoNinja = new Uchiha();
+                newNinja = new Uchiha();
                 break;
             case 3:
-                novoNinja = new Hyuga();
+                newNinja = new Hyuga();
                 break;
             default:
                 return null;
         }
-        return novoNinja;
+        return newNinja;
     }
 
 
-    private static void validaMissao(Ninja novoNinja, Scanner input) {
-        if (novoNinja.getMissao().isEmpty()) {
-            novoNinja.setMissao(" - ");
-            novoNinja.setDificuldade(" - ");
-            novoNinja.setStatus(" - ");
+    private static void missionValidation(Ninja newNinja, Scanner input) {
+        if (newNinja.getMission().isEmpty()) {
+            newNinja.setMissao(" - ");
+            newNinja.setRank(RankEnum.EMPTY.getDescription());
+            newNinja.setStatus(StatusEnum.EMPTY.getDescription());
         } else {
-            System.out.println("Dificuldade: ");
-            novoNinja.setDificuldade(input.nextLine());
-            System.out.println("Status: ");
-            novoNinja.setStatus(input.nextLine());
+            System.out.println("Rank: (S / A / B / C / D)");
+            String rank = input.nextLine();
+            newNinja.setRank(RankEnum.fromString(rank));
+            System.out.println("Status: (TO DO / IN PROGRESS / COMPLETED / -");
+            String status = input.nextLine();
+            newNinja.setStatus(StatusEnum.fromString(status));
         }
     }
 
-    public static void alterarHabilidade() {
-        final String informeHabilidade = "Informe a nova Habilidade: ";
+    public static void changeSkills() {
+        final String newSkill = "New Skill: ";
         Scanner input = new Scanner(System.in);
         System.out.println("1 - Ninja Uchiha \n2 - Ninja Hyuga");
         if (input.nextInt() == 1) {
             input.nextLine();
-            System.out.println(informeHabilidade);
-            Uchiha.habilidadeEspecial = input.nextLine();
+            System.out.println(newSkill);
+            Uchiha.specialAbility = input.nextLine();
         } else {
             input.nextLine();
-            System.out.println(informeHabilidade);
-            Hyuga.habilidadeEspecial = input.nextLine();
+            System.out.println(newSkill);
+            Hyuga.specialAbility = input.nextLine();
         }
     }
 }

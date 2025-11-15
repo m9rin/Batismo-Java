@@ -8,28 +8,28 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int opcao = 0;
-        List grupoNinjas = new ArrayList<>();
+        int option = 0;
+        List<Ninja>groupNinjas = new ArrayList<>();
 
 
         do {
             Menu.exibirMenu();
-            opcao = input.nextInt();
+            option = input.nextInt();
 
-            switch (opcao) {
+            switch (option) {
                 case 1:
-                    NinjaServices.listarNinjas(grupoNinjas);
+                    NinjaServices.listNinjas(groupNinjas);
                     break;
                 case 2:
-                    NinjaServices.adicionarNinja(grupoNinjas);
+                    NinjaServices.addNewNinja(groupNinjas);
                     break;
                 case 3:
-                    NinjaServices.alterarHabilidade();
+                    NinjaServices.changeSkills();
                     break;
                 default:
-                    System.out.println("Opcao Invalida! Tente novamente.");
+                    System.out.println("Invalid option, Try again.");
                     break;
             }
-        } while (opcao != 4);
+        } while (option != 4);
     }
 }
