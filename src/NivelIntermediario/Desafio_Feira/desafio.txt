@@ -1,0 +1,3 @@
+Quero que UMA pessoa vá na feira com UMA cesta e nessa cesta ela consiga colocar N frutas e cada fruta tenha UM nome;
+
+Agora quero que pessoa, tenha um mẽtodo colocar fruta na cesta
