@@ -1,9 +1,9 @@
 package NivelIntermediario.Desafio6;
 
 public class Ninja {
-    String nome;
-    int idade;
-    String vila;
+    private String nome;
+    private int idade;
+    private String vila;
 
     public Ninja(String nome, int idade, String vila) {
         this.nome = nome;
